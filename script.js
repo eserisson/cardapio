@@ -9,6 +9,7 @@ const closeModelBtn = document.getElementById("close-model-btn")
 const cartCount = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
+const menu2 = document.getElementById("menu2")
 
 let cart = [];
 
@@ -31,7 +32,7 @@ closeModelBtn.addEventListener("click", function () {
 })
 
 menu.addEventListener("click", function (event) {
-    // console.log(event.target)
+    
 
     let parentButton = event.target.closest(".add-to-cart-btn")
 
@@ -41,6 +42,21 @@ menu.addEventListener("click", function (event) {
         addToCart(name, price)
 
     }
+    //console.log(event.target)
+})
+
+menu2.addEventListener("click", function (event) {
+    
+
+    let parentButton = event.target.closest(".add-to-cart-btn")
+
+    if (parentButton) {
+        const name = parentButton.getAttribute("data-name")
+        const price = parseFloat(parentButton.getAttribute("data-price"))
+        addToCart(name, price)
+
+    }
+    //console.log(event.target)
 })
 //função para adcionar no carrinho
 function addToCart(name, price) {
